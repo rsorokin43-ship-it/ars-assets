@@ -1,1 +1,369 @@
-https://github.com/rsorokin43-ship-it/ars-assets/blob/main/hero.png
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARS Consult OÜ — Selgus inimestes, protsessides ja andmetes</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #1a2332;
+    --navy-mid: #243447;
+    --gold: #c9a84c;
+    --gold-light: #e8d5a3;
+    --gold-bg: #fdf8ee;
+    --white: #ffffff;
+    --gray: #64748b;
+    --border: #e2e8f0;
+    --light: #f8fafc;
+  }
+  body { font-family: 'Inter', system-ui, sans-serif; color: var(--navy); background: var(--white); line-height: 1.6; }
+  h1, h2, h3, .hero-motto, .meist-quote { font-family: 'Cormorant Garamond', Georgia, serif; }
+  h1 { font-weight: 700; letter-spacing: -.01em; }
+  h2 { font-weight: 600; }
+  h3 { font-weight: 600; }
+  .hero-motto { font-weight: 400; }
+  a { color: inherit; text-decoration: none; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--navy);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: .8rem; }
+  .nav-logo img {
+    height: 38px; width: auto;
+    filter: invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(1.1);
+  }
+  .nav-logo-text { font-weight: 700; font-size: 1.05rem; letter-spacing: .04em; color: var(--white); }
+  .nav-logo-text span { color: var(--gold); font-size: .75rem; font-weight: 400; letter-spacing: .12em; display: block; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2rem; font-size: .88rem; color: #94a3b8; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: transparent; color: var(--gold);
+    border: 1.5px solid var(--gold);
+    padding: .42rem 1.1rem; border-radius: 6px; font-size: .85rem; font-weight: 600;
+    transition: background .2s, color .2s;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--navy); }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(150deg, rgba(26,35,50,.92) 0%, rgba(36,52,71,.88) 60%, rgba(30,58,90,.92) 100%),
+    url('https://raw.githubusercontent.com/rsorokin43-ship-it/ars-assets/main/hero.png') center/cover no-repeat;
+    color: var(--white); padding: 7rem 2rem 6rem; text-align: center;
+  }
+  .hero-tag {
+    display: inline-block;
+    border: 1px solid rgba(201,168,76,.4); color: var(--gold-light);
+    font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+    padding: .3rem .9rem; border-radius: 20px; margin-bottom: 1.8rem;
+  }
+  .hero h1 { font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 700; line-height: 1.2; margin-bottom: 1.2rem; }
+  .hero h1 span { color: var(--gold); }
+  .hero p { font-size: 1.05rem; color: #cbd5e1; max-width: 580px; margin: 0 auto 1.5rem; }
+  .hero-motto { font-size: .9rem; color: var(--gold); font-style: italic; opacity: .85; margin-bottom: 2.5rem; }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1080px; margin: 0 auto; }
+  .section-label { font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: .6rem; }
+  h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; margin-bottom: 1rem; color: var(--navy); }
+  .subtitle { color: var(--gray); font-size: .97rem; max-width: 560px; margin-bottom: 3rem; }
+
+  /* SERVICES */
+  .services-bg { background: var(--light); }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.5rem; }
+  .card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.8rem 1.5rem;
+    transition: box-shadow .2s, transform .15s, border-color .2s;
+    position: relative;
+  }
+  .card::after {
+    content: ''; position: absolute; bottom: 0; left: 1.5rem; right: 1.5rem; height: 2px;
+    background: var(--gold); border-radius: 0 0 2px 2px; opacity: 0; transition: opacity .2s;
+  }
+  .card:hover { box-shadow: 0 8px 28px rgba(26,35,50,.1); transform: translateY(-2px); border-color: var(--gold-light); }
+  .card:hover::after { opacity: 1; }
+  .card-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+  .card h3 { font-size: 1rem; font-weight: 700; margin-bottom: .6rem; color: var(--navy); }
+  .card p { font-size: .875rem; color: var(--gray); line-height: 1.55; }
+
+  /* WHY */
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
+  .why-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .why-dot {
+    width: 38px; height: 38px; min-width: 38px;
+    background: var(--gold-bg); border: 1px solid var(--gold-light);
+    border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem;
+  }
+  .why-item h4 { font-size: .95rem; font-weight: 700; margin-bottom: .3rem; color: var(--navy); }
+  .why-item p { font-size: .85rem; color: var(--gray); }
+
+  /* MEIST */
+  .meist-bg { background: var(--light); }
+  .meist-inner { display: flex; gap: 3rem; align-items: flex-start; }
+  @media (max-width: 640px) { .meist-inner { flex-direction: column; } }
+  .meist-text { flex: 1; }
+  .meist-text p { color: var(--gray); font-size: .97rem; line-height: 1.7; margin-bottom: 1rem; }
+  .meist-text strong { color: var(--navy); }
+  .meist-quote {
+    border-left: 3px solid var(--gold); padding-left: 1rem;
+    font-style: italic; color: var(--navy); font-size: 1rem; font-weight: 600;
+    margin-top: 1.5rem;
+  }
+
+  /* FIT */
+  .fit-bg { background: var(--navy); color: var(--white); }
+  .fit-bg h2 { color: var(--white); }
+  .fit-bg .subtitle { color: #94a3b8; }
+  .fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  @media (max-width: 640px) { .fit-grid { grid-template-columns: 1fr; } }
+  .fit-col h4 { font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem; }
+  .fit-col.yes h4 { color: #4ade80; }
+  .fit-col.no h4 { color: #f87171; }
+  .fit-list { list-style: none; display: flex; flex-direction: column; gap: .75rem; }
+  .fit-list li { font-size: .9rem; color: #cbd5e1; display: flex; gap: .7rem; align-items: flex-start; line-height: 1.5; }
+  .fit-col.yes .fit-list li::before { content: "✓"; color: #4ade80; font-weight: 700; flex-shrink: 0; margin-top: .1rem; }
+  .fit-col.no .fit-list li::before { content: "✕"; color: #f87171; flex-shrink: 0; margin-top: .1rem; }
+
+  /* BLOG */
+  .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .blog-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.6rem 1.5rem;
+    transition: box-shadow .2s, transform .15s, border-color .2s;
+    display: flex; flex-direction: column; gap: .6rem;
+  }
+  .blog-card:hover { box-shadow: 0 8px 28px rgba(26,35,50,.09); transform: translateY(-2px); border-color: var(--gold-light); }
+  .blog-tag {
+    display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--gold);
+    background: var(--gold-bg); border: 1px solid var(--gold-light);
+    padding: .2rem .6rem; border-radius: 20px; width: fit-content;
+  }
+  .blog-card h3 { font-size: .97rem; font-weight: 700; color: var(--navy); line-height: 1.4; }
+  .blog-card p { font-size: .85rem; color: var(--gray); line-height: 1.55; flex: 1; }
+  .blog-link { font-size: .83rem; font-weight: 600; color: var(--gold); margin-top: .4rem; }
+  .blog-link:hover { text-decoration: underline; }
+
+  /* CONTACT */
+  .contact-inner {
+    background: var(--navy); border-radius: 16px; padding: 3.5rem 2rem;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .contact-inner .section-label { color: var(--gold); }
+  .contact-inner h2 { color: var(--white); margin-bottom: .6rem; }
+  .contact-inner p { color: #94a3b8; margin-bottom: 2rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .contact-btn {
+    display: inline-block;
+    background: var(--gold); color: var(--navy);
+    padding: .9rem 2.2rem; border-radius: 8px; font-weight: 700; font-size: 1rem;
+    transition: background .2s;
+  }
+  .contact-btn:hover { background: var(--gold-light); }
+  .contact-info { margin-top: 1.8rem; font-size: .87rem; color: #64748b; }
+  .contact-info a { color: var(--gold); opacity: .85; }
+
+  /* FOOTER */
+  footer { background: #111827; color: #4b5563; text-align: center; padding: 1.8rem; font-size: .8rem; }
+  footer span { color: #6b7280; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="https://raw.githubusercontent.com/rsorokin43-ship-it/ars-assets/main/v%C3%A4ikekuldne.png" alt="ARS Consult logo" style="height:42px; width:42px; object-fit:contain; border-radius:4px;" />
+    <div class="nav-logo-text">ARS <span>Consult</span></div>
+  </div>
+  <div class="nav-links">
+    <a href="#teenused">Teenused</a>
+    <a href="#meist">Meist</a>
+    <a href="#blogi">Blogi</a>
+    <a href="#kontakt">Kontakt</a>
+  </div>
+  <a href="#kontakt" class="nav-cta">Võta ühendust</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">Projektipõhine tugi</div>
+  <h1>Selgus inimestes,<br><span>protsessides ja andmetes.</span></h1>
+  <p>Praktiline partner väike- ja kasvavatele ettevõtetele — kui töö on projektipõhine või eraldi rolli palkamine ei ole veel mõistlik samm.</p>
+  <div class="hero-motto">"Clarity first. Everything else follows."</div>
+</section>
+
+<!-- TEENUSED -->
+<section class="services-bg" id="teenused">
+  <div class="container">
+    <div class="section-label">Teenused</div>
+    <h2>Mida me pakume</h2>
+    <p class="subtitle">Igal teenuseplokil on selge fookus ja konkreetne tulemus — mitte ainult nõuanne, vaid töötav lahendus, mis antakse üle.</p>
+    <div class="services-grid">
+      <div class="card">
+        <div class="card-icon">👥</div>
+        <h3>HR ja värbamisprotsess</h3>
+        <p>Värbamise ja onboarding'u korraldus, personalitöö tugi, töökorralduse selgus ja juhtide praktiline tugi.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🦺</div>
+        <h3>Tööohutus ja riskianalüüs</h3>
+        <p>Riskianalüüs koos tegevusplaaniga, tööohutuse süsteem, dokumentatsioon ja kontrollrutiinid — päriselt kasutatav.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📋</div>
+        <h3>Koolitused ja töötoad</h3>
+        <p>Vajaduspõhised töötoad HR, tööohutuse ja protsesside teemal. Koolitused loodud töövahenditele ja süsteemidele.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h3>Protsessid, andmed ja aruandlus</h3>
+        <p>Protsesside nähtavaks tegemine, andmekogumise loogika, Exceli tööriistad ja Smartsheeti lahendused.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MIKS -->
+<section id="miks">
+  <div class="container">
+    <div class="section-label">Miks ARS Consult</div>
+    <h2>Vajadusest töötava lahenduseni</h2>
+    <p class="subtitle">Me ei jää nõuandeks. Viime vajaduse dokumendiks, töövahendiks, süsteemiks ja oskuseks — koos üleandmise ja koolitusega.</p>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-dot">🎯</div>
+        <div>
+          <h4>Projektipõhine paindlikkus</h4>
+          <p>Töötame konkreetse ülesande või mahu järgi — ilma püsiva tööjõukuluta.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-dot">⚙️</div>
+        <div>
+          <h4>Lahendused, mis päriselt töötavad</h4>
+          <p>Tulemus on igapäevases töös kasutatav, mitte ainult paberil olemas.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-dot">🤝</div>
+        <div>
+          <h4>Tulemus antakse üle</h4>
+          <p>Süsteem, oskus ja teadmine jääb ettevõttesse — mitte ainult meie kätte.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-dot">📍</div>
+        <div>
+          <h4>Kohalik ja ligipääsetav</h4>
+          <p>Asume Paides. Töötame üle Eesti — kohapeal ja distantsilt.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEIST -->
+<section class="meist-bg" id="meist">
+  <div class="container">
+    <div class="section-label">Meist</div>
+    <h2>Kes on ARS Consult?</h2>
+    <div class="meist-inner">
+      <div class="meist-text">
+        <p><strong>ARS Consult taga on Rodion</strong> — üle 16 aasta Kaitseväes ja Kaitseliidus teeninud ohvitser, kes on juhtinud kuni 85-liikmelisi üksusi, vastutanud eelarvete, logistika ja operatiivplaneerimise eest ning juhtinud rahvusvahelist missiooni Afganistanis.</p>
+        <p>Erasektoris on ta töötanud tootmisjuhi, laoüksuse juhi ja ressursside juhina — igas rollis sama põhimõttega: tee probleemid nähtavaks, loo süsteem, anna tulemus üle. Avastatud aruandlusviga likvideeris 10 000–12 000 € kuise kao. Käsitsi töö vähenes 85%. Masinapargi optimeerimine säästis 5 600 € kuus.</p>
+        <p>ARS Consult tekkis soovist töötada iseseisvalt ja aidata ettevõtteid, kes vajavad selgust — inimestes, protsessides või andmetes.</p>
+        <div class="meist-quote">"Numbritel ei ole emotsiooni, aga neid on vaja korrektselt koguda, tõlgendada ja lugeda."</div>
+      </div>
+    </div>
+    <p style="margin-top:1.5rem; font-size:.9rem; color:var(--gray);">→ <a href="#kontakt" style="color:var(--gold);">Loe lähemalt meie loost</a></p>
+  </div>
+</section>
+
+<!-- SOBIB / EI SOBI -->
+<section class="fit-bg">
+  <div class="container">
+    <div class="section-label">Kas sobime?</div>
+    <h2>Tunneb enda ära?</h2>
+    <p class="subtitle">ARS Consult sobib kõige paremini siis, kui vajadus on selge, aga täiskohaga spetsialisti palkamine ei ole veel mõistlik samm.</p>
+    <div class="fit-grid">
+      <div class="fit-col yes">
+        <h4>Sobib hästi</h4>
+        <ul class="fit-list">
+          <li>Ettevõte kasvab ja tekib "segaduse lagi" — keegi ei tea täpselt, kes mida teeb</li>
+          <li>Protsessid ja teadmised on inimeste peas, mitte süsteemis</li>
+          <li>Vaja on kiiret korda: dokumentatsioon, riskianalüüs, rolliselgus, aruandlus</li>
+          <li>Soov on paindlik tugi projektipõhiselt või kindla mahuga kuus</li>
+          <li>5–200 töötajat, juht või omanik kellel on "liiga palju asju korraga"</li>
+        </ul>
+      </div>
+      <div class="fit-col no">
+        <h4>Ei sobi hästi</h4>
+        <ul class="fit-list">
+          <li>Soovitakse ainult üldist konsultatsiooni ilma rakendamiseta</li>
+          <li>Organisatsioon ei ole valmis kokkuleppeid päriselt muutma</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOGI -->
+<section id="blogi" style="background: var(--light);">
+  <div class="container">
+    <div class="section-label">Blogi</div>
+    <h2>Mõtteid praktikust praktikule</h2>
+    <p class="subtitle">Kirjutame HR-ist, tööohutusest, protsessidest ja andmetest — lihtsalt ja kasutataval kujul.</p>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <span class="blog-tag">HR</span>
+        <h3>Miks onboarding ebaõnnestub — ja mida saab teha teisiti</h3>
+        <p>Uus töötaja lahkub esimese 3 kuu jooksul harvem siis, kui protsess on selge juba enne esimest tööpäeva.</p>
+        <a href="https://www.linkedin.com/company/ars-consult" target="_blank" class="blog-link">Loe LinkedInis →</a>
+      </div>
+      <div class="blog-card">
+        <span class="blog-tag">Tööohutus</span>
+        <h3>Riskianalüüs ei pea olema mahukas — peab olema kasutatav</h3>
+        <p>Paljud ettevõtted teevad riskianalüüsi "kohustuse pärast". Tegelikult on see parim hetk protsessid korda saada.</p>
+        <a href="https://www.linkedin.com/company/ars-consult" target="_blank" class="blog-link">Loe LinkedInis →</a>
+      </div>
+      <div class="blog-card">
+        <span class="blog-tag">Andmed</span>
+        <h3>Räpane data maksab raha — aga seda saab muuta</h3>
+        <p>Kui otsused põhinevad valel infol, on kulu nähtamatu. Andmekvaliteet algab kogumisloogikast.</p>
+        <a href="https://www.linkedin.com/company/ars-consult" target="_blank" class="blog-link">Loe LinkedInis →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="section-label">Kontakt</div>
+      <h2>Räägime sinu vajadusest</h2>
+      <p>Kirjelda lühidalt, mis on hetkel kõige suurem väljakutse — vaatame koos, kas ja kuidas saame aidata.</p>
+      <a href="mailto:info@arsconsult.ee" class="contact-btn">Saada kiri →</a>
+      <div class="contact-info">
+        <strong style="color:#94a3b8">ARS Consult OÜ</strong> · Paide, Eesti<br>
+        <a href="mailto:info@arsconsult.ee">info@arsconsult.ee</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>ARS Consult OÜ</span> · Paide, Eesti · © 2025 · Kõik õigused kaitstud
+</footer>
+
+</body>
+</html>
