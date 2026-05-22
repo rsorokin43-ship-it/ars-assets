@@ -116,6 +116,12 @@
     font-style: italic; color: var(--navy); font-size: 1rem; font-weight: 600;
     margin-top: 1.5rem;
   }
+  .meist-people { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem; }
+  @media (max-width: 640px) { .meist-people { grid-template-columns: 1fr; } }
+  .meist-person { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .meist-person img { width: 160px; height: 160px; object-fit: cover; border-radius: 50%; border: 3px solid var(--gold); margin-bottom: 1rem; }
+  .meist-person h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: .2rem; }
+  .meist-person span { font-size: .82rem; color: var(--gold); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
 
   /* FIT */
   .fit-bg { background: var(--navy); color: var(--white); }
@@ -225,7 +231,6 @@
         <div class="card-icon">📊</div>
         <h3>Protsessid, andmed ja aruandlus</h3>
         <p>Protsesside nähtavaks tegemine, andmekogumise loogika, Exceli tööriistad ja Smartsheeti lahendused.</p>
-      </div>
     </div>
   </div>
 </section>
@@ -274,8 +279,19 @@
   <div class="container">
     <div class="section-label">Meist</div>
     <h2>Kes on ARS Consult?</h2>
-    <div class="meist-inner">
-      <div class="meist-text">
+    <div class="meist-people">
+      <div class="meist-person">
+        <img src="https://raw.githubusercontent.com/rsorokin43-ship-it/ars-assets/main/rodion.jpg" alt="Rodion" />
+        <h3>Rodion</h3>
+        <span>Protsessid · Andmed · Koolitus</span>
+      </div>
+      <div class="meist-person">
+        <img src="https://raw.githubusercontent.com/rsorokin43-ship-it/ars-assets/main/annika.jpg" alt="Annika" />
+        <h3>Annika</h3>
+        <span>HR · Tööohutus · Inimesed</span>
+      </div>
+    </div>
+    <div class="meist-text">
         <p><strong>ARS Consult taga on Rodion</strong> — üle 16 aasta Kaitseväes ja Kaitseliidus teeninud ohvitser, kes on juhtinud kuni 85-liikmelisi üksusi, vastutanud eelarvete, logistika ja operatiivplaneerimise eest ning juhtinud rahvusvahelist missiooni Afganistanis.</p>
         <p>Erasektoris on ta töötanud tootmisjuhi, laoüksuse juhi ja ressursside juhina — igas rollis sama põhimõttega: tee probleemid nähtavaks, loo süsteem, anna tulemus üle. Avastatud aruandlusviga likvideeris 10 000–12 000 € kuise kao. Käsitsi töö vähenes 85%. Masinapargi optimeerimine säästis 5 600 € kuus.</p>
         <p>ARS Consult tekkis soovist töötada iseseisvalt ja aidata ettevõtteid, kes vajavad selgust — inimestes, protsessides või andmetes.</p>
