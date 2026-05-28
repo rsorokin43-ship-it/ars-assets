@@ -50,6 +50,29 @@
   }
   .nav-cta:hover { background: var(--gold); color: var(--navy); }
 
+  /* HAMBURGER */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: .4rem; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all .3s; }
+  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  .mobile-menu {
+    display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
+    background: var(--navy); z-index: 99;
+    flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-size: 1.4rem; color: #94a3b8; font-family: 'Cormorant Garamond', serif; }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-menu .nav-cta { font-size: 1rem; padding: .7rem 2rem; }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .hamburger { display: flex; }
+  }
+
   /* HERO */
   .hero {
     background: linear-gradient(150deg, rgba(26,35,50,.92) 0%, rgba(36,52,71,.88) 60%, rgba(30,58,90,.92) 100%),
@@ -194,8 +217,30 @@
     <a href="#blogi">Blogi</a>
     <a href="#kontakt">Kontakt</a>
   </div>
-  <a href="#kontakt" class="nav-cta">Võta ühendust</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#teenused" onclick="toggleMenu()">Teenused</a>
+  <a href="#meist" onclick="toggleMenu()">Meist</a>
+  <a href="#blogi" onclick="toggleMenu()">Blogi</a>
+  <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
+  <a href="#kontakt" onclick="toggleMenu()" class="nav-cta">Võta ühendust</a>
+</div>
+
+<script>
+function toggleMenu() {
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function toggleBio(id, btn) {
+  const card = document.getElementById(id);
+  card.classList.toggle('open');
+  btn.textContent = card.classList.contains('open') ? 'Peida ←' : 'Loe lähemalt →';
+}
+</script>
 
 <!-- HERO -->
 <section class="hero">
