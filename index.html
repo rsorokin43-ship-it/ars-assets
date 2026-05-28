@@ -106,19 +106,22 @@
 
   /* MEIST */
   .meist-bg { background: var(--light); }
-  .meist-people { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem; }
+  .meist-people { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
   @media (max-width: 640px) { .meist-people { grid-template-columns: 1fr; } }
   .meist-person { display: flex; flex-direction: column; align-items: center; text-align: center; }
   .meist-person img { width: 160px; height: 160px; object-fit: cover; border-radius: 50%; border: 3px solid var(--gold); margin-bottom: 1rem; }
   .meist-person h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: .2rem; }
-  .meist-person span { font-size: .82rem; color: var(--gold); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
-  .meist-text p { color: var(--gray); font-size: .97rem; line-height: 1.7; margin-bottom: 1rem; }
-  .meist-text strong { color: var(--navy); }
-  .meist-quote {
-    border-left: 3px solid var(--gold); padding-left: 1rem;
-    font-style: italic; color: var(--navy); font-size: 1rem; font-weight: 600;
-    margin-top: 1.5rem;
-  }
+  .meist-person .meist-role { font-size: .82rem; color: var(--gold); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .8rem; }
+  .meist-person .meist-bio { font-size: .9rem; color: var(--gray); line-height: 1.65; text-align: left; margin-bottom: .8rem; }
+  .meist-person .meist-bio-short { display: block; }
+  .meist-person .meist-bio-full { display: none; }
+  .meist-person.open .meist-bio-short { display: none; }
+  .meist-person.open .meist-bio-full { display: block; }
+  .meist-read-more { font-size: .83rem; font-weight: 600; color: var(--gold); cursor: pointer; background: none; border: none; padding: 0; margin-bottom: .8rem; }
+  .meist-read-more:hover { text-decoration: underline; }
+  .meist-person .meist-quote { border-left: 3px solid var(--gold); padding-left: 1rem; font-style: italic; color: var(--navy); font-size: .92rem; font-weight: 600; margin-top: .8rem; text-align: left; display: none; }
+  .meist-person.open .meist-quote { display: block; }
+  .meist-linkedin { margin-top: .7rem; font-size: .82rem; color: var(--gold); font-weight: 600; }
 
   /* FIT */
   .fit-bg { background: var(--navy); color: var(--white); }
@@ -278,27 +281,44 @@
     <div class="section-label">Meist</div>
     <h2>Kes on ARS Consult?</h2>
     <div class="meist-people">
-      <div class="meist-person">
+
+      <div class="meist-person" id="rodion-card">
         <img src="https://raw.githubusercontent.com/rsorokin43-ship-it/ars-assets/main/rodion.jpg" alt="Rodion" />
         <h3>Rodion</h3>
-        <span>Protsessid · Andmed · Koolitus</span>
-        <a href="https://www.linkedin.com/in/rodion-sorokin" target="_blank" style="margin-top:.7rem; font-size:.82rem; color:var(--gold); font-weight:600;">LinkedIn →</a>
+        <div class="meist-role">Protsessid · Andmed · Koolitus</div>
+        <div class="meist-bio">
+          <span class="meist-bio-short">Üle 16 aasta Kaitseväes ja Kaitseliidus teeninud ohvitser, kes on juhtinud kuni 85-liikmelisi üksusi ja rahvusvahelist missiooni Afganistanis...</span>
+          <span class="meist-bio-full">Üle 16 aasta Kaitseväes ja Kaitseliidus teeninud ohvitser, kes on juhtinud kuni 85-liikmelisi üksusi ja rahvusvahelist missiooni Afganistanis. Erasektoris on ta korrastanud protsesse ja andmesüsteeme — avastatud aruandlusviga likvideeris 10 000–12 000 € kuise kao, käsitsi töö vähenes 85% ja masinapargi optimeerimine säästis 5 600 € kuus.<br><br>ARS Consult tekkis soovist töötada iseseisvalt ja aidata ettevõtteid, kes vajavad selgust — inimestes, protsessides või andmetes.</span>
+        </div>
+        <div class="meist-quote">"Numbritel ei ole emotsiooni, aga neid on vaja korrektselt koguda, tõlgendada ja lugeda."</div>
+        <button class="meist-read-more" onclick="toggleBio('rodion-card', this)">Loe lähemalt →</button>
+        <a href="https://www.linkedin.com/in/rodion-sorokin" target="_blank" class="meist-linkedin">LinkedIn →</a>
       </div>
-      <div class="meist-person">
+
+      <div class="meist-person" id="annika-card">
         <img src="https://raw.githubusercontent.com/rsorokin43-ship-it/ars-assets/main/annika.jpg" alt="Annika" />
         <h3>Annika</h3>
-        <span>HR · Tööohutus · Inimesed</span>
-        <a href="https://www.linkedin.com/in/annika-sorokin-789749225" target="_blank" style="margin-top:.7rem; font-size:.82rem; color:var(--gold); font-weight:600;">LinkedIn →</a>
+        <div class="meist-role">HR · Tööohutus · Inimesed</div>
+        <div class="meist-bio">
+          <span class="meist-bio-short">Personalijuht ja organisatsioonikultuuri eestvedaja, kellel on kogemus tootmiskeskkonnas — kiiresti muutuvates olukordades, kus selgus ja usaldus ei ole iseenesestmõistetavad...</span>
+          <span class="meist-bio-full">Personalijuht ja organisatsioonikultuuri eestvedaja, kellel on kogemus tootmiskeskkonnas — kiiresti muutuvates olukordades, kus selgus, koostöö ja usaldus ei ole iseenesestmõistetavad.<br><br>Ta on töötanud juhtgrupi liikmena ning aidanud luua protsesse, mis toetavad juhte ja hoiavad meeskondi koos ka muutuste keskel. Tema fookus on töötajakogemus, tagasisidekultuur ja vaimse tervise teadlikkus — mitte paberil, vaid päriselt.</span>
+        </div>
+        <div class="meist-quote">"Kultuur ei teki dokumentidest — see tekib sellest, kuidas inimesed end iga päev tunnevad."</div>
+        <button class="meist-read-more" onclick="toggleBio('annika-card', this)">Loe lähemalt →</button>
+        <a href="https://www.linkedin.com/in/annika-sorokin-789749225" target="_blank" class="meist-linkedin">LinkedIn →</a>
       </div>
-    </div>
-    <div class="meist-text">
-      <p><strong>ARS Consult taga on Rodion ja Annika</strong> — praktikud, kes on töötanud erinevates organisatsioonides ja näinud, mis päriselt töötab ja mis mitte.</p>
-      <p><strong>Rodion</strong> on üle 16 aasta Kaitseväes ja Kaitseliidus teeninud ohvitser, kes on juhtinud kuni 85-liikmelisi üksusi ja rahvusvahelist missiooni Afganistanis. Erasektoris on ta korrastanud protsesse ja andmesüsteeme — avastatud aruandlusviga likvideeris 10 000–12 000 € kuise kao, käsitsi töö vähenes 85%.</p>
-      <p><strong>Annika</strong> on personalijuht ja organisatsioonikultuuri eestvedaja, kellel on kogemus tootmiskeskkonnas — kiiresti muutuvates olukordades, kus selgus, koostöö ja usaldus ei ole iseenesestmõistetavad. Ta on töötanud juhtgrupi liikmena ning aidanud luua protsesse, mis toetavad juhte ja hoiavad meeskondi koos ka muutuste keskel. Tema fookus on töötajakogemus, tagasisidekultuur ja vaimse tervise teadlikkus — mitte paberil, vaid päriselt.</p>
-      <div class="meist-quote">"Kultuur ei teki dokumentidest — see tekib sellest, kuidas inimesed end iga päev tunnevad."</div>
+
     </div>
   </div>
 </section>
+
+<script>
+function toggleBio(id, btn) {
+  const card = document.getElementById(id);
+  card.classList.toggle('open');
+  btn.textContent = card.classList.contains('open') ? 'Peida ←' : 'Loe lähemalt →';
+}
+</script>
 
 <!-- SOBIB / EI SOBI -->
 <section class="fit-bg">
