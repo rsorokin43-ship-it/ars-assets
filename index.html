@@ -32,7 +32,7 @@
     background: var(--navy);
     padding: 0 2rem;
     display: flex; align-items: center; justify-content: space-between;
-    height: 64px;
+    height: 72px;
   }
   .nav-logo { display: flex; align-items: center; gap: 1rem; }
   .nav-logo img { height: 80px; width: auto; }
@@ -106,9 +106,12 @@
 
   /* MEIST */
   .meist-bg { background: var(--light); }
-  .meist-inner { display: flex; gap: 3rem; align-items: flex-start; }
-  @media (max-width: 640px) { .meist-inner { flex-direction: column; } }
-  .meist-text { flex: 1; }
+  .meist-people { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem; }
+  @media (max-width: 640px) { .meist-people { grid-template-columns: 1fr; } }
+  .meist-person { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .meist-person img { width: 160px; height: 160px; object-fit: cover; border-radius: 50%; border: 3px solid var(--gold); margin-bottom: 1rem; }
+  .meist-person h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: .2rem; }
+  .meist-person span { font-size: .82rem; color: var(--gold); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
   .meist-text p { color: var(--gray); font-size: .97rem; line-height: 1.7; margin-bottom: 1rem; }
   .meist-text strong { color: var(--navy); }
   .meist-quote {
@@ -116,12 +119,6 @@
     font-style: italic; color: var(--navy); font-size: 1rem; font-weight: 600;
     margin-top: 1.5rem;
   }
-  .meist-people { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem; }
-  @media (max-width: 640px) { .meist-people { grid-template-columns: 1fr; } }
-  .meist-person { display: flex; flex-direction: column; align-items: center; text-align: center; }
-  .meist-person img { width: 160px; height: 160px; object-fit: cover; border-radius: 50%; border: 3px solid var(--gold); margin-bottom: 1rem; }
-  .meist-person h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: .2rem; }
-  .meist-person span { font-size: .82rem; color: var(--gold); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
 
   /* FIT */
   .fit-bg { background: var(--navy); color: var(--white); }
@@ -138,7 +135,7 @@
   .fit-col.no .fit-list li::before { content: "✕"; color: #f87171; flex-shrink: 0; margin-top: .1rem; }
 
   /* BLOG */
-  .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
   .blog-card {
     background: var(--white); border: 1px solid var(--border);
     border-radius: 12px; padding: 1.6rem 1.5rem;
@@ -160,7 +157,7 @@
   /* CONTACT */
   .contact-inner {
     background: var(--navy); border-radius: 16px; padding: 3.5rem 2rem;
-    text-align: center; position: relative; overflow: hidden;
+    text-align: center;
   }
   .contact-inner .section-label { color: var(--gold); }
   .contact-inner h2 { color: var(--white); margin-bottom: .6rem; }
@@ -185,7 +182,7 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <img src="https://raw.githubusercontent.com/rsorokin43-ship-it/ars-assets/main/logo-icon.png?v=3" alt="ARS Consult logo" style="height:60px; width:auto;" />
+    <img src="https://raw.githubusercontent.com/rsorokin43-ship-it/ars-assets/main/logo-icon.png?v=3" alt="ARS Consult logo" />
     <div class="nav-logo-text">ARS <span>Consult</span></div>
   </div>
   <div class="nav-links">
@@ -216,19 +213,7 @@
         <div class="card-icon">👥</div>
         <h3>HR ja värbamisprotsess</h3>
         <p>Värbamise ja onboarding'u korraldus, personalitöö tugi, töökorralduse selgus ja juhtide praktiline tugi.</p>
-        <div class="blog-card">
-        <span class="blog-tag">HR</span>
-        <h3>Tööõiguse seminar — värsked teadmised päris elust</h3>
-        <p>Osalesime tööõiguse seminaril, mis tõi kaasa värsket kohtupraktikat ja arutelusid — muutuvtunni kokkulepetest kuni palga läbipaistvuse direktiivini.</p>
-        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7457868450993045505" target="_blank" class="blog-link">Loe LinkedInis → <span style="font-size:.75rem; opacity:.7;">— Annika</span></a>
-        <div class="blog-card">
-        <span class="blog-tag">Juhtimine</span>
-        <h3>Probleem ei ole enamasti inimestes</h3>
-        <p>Kui rollid ei ole selged ja töö liigub lihtsalt "kuidagi", siis ei saagi süsteem toimida. Inimesed töötavad nii hästi, kui süsteem seda võimaldab.</p>
-        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7440712942888611840" target="_blank" class="blog-link">Loe LinkedInis → <span style="font-size:.75rem; opacity:.7;">— Annika</span></a>
       </div>
-    </div>
-    </div>
       <div class="card">
         <div class="card-icon">🦺</div>
         <h3>Tööohutus ja riskianalüüs</h3>
@@ -243,6 +228,7 @@
         <div class="card-icon">📊</div>
         <h3>Protsessid, andmed ja aruandlus</h3>
         <p>Protsesside nähtavaks tegemine, andmekogumise loogika, Exceli tööriistad ja Smartsheeti lahendused.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -302,16 +288,15 @@
         <img src="https://raw.githubusercontent.com/rsorokin43-ship-it/ars-assets/main/annika.jpg" alt="Annika" />
         <h3>Annika</h3>
         <span>HR · Tööohutus · Inimesed</span>
+        <a href="https://www.linkedin.com/in/annika-sorokin-789749225" target="_blank" style="margin-top:.7rem; font-size:.82rem; color:var(--gold); font-weight:600;">LinkedIn →</a>
       </div>
     </div>
     <div class="meist-text">
-        <p><strong>ARS Consult taga on Rodion</strong> — üle 16 aasta Kaitseväes ja Kaitseliidus teeninud ohvitser, kes on juhtinud kuni 85-liikmelisi üksusi, vastutanud eelarvete, logistika ja operatiivplaneerimise eest ning juhtinud rahvusvahelist missiooni Afganistanis.</p>
-        <p>Erasektoris on ta töötanud tootmisjuhi, laoüksuse juhi ja ressursside juhina — igas rollis sama põhimõttega: tee probleemid nähtavaks, loo süsteem, anna tulemus üle. Avastatud aruandlusviga likvideeris 10 000–12 000 € kuise kao. Käsitsi töö vähenes 85%. Masinapargi optimeerimine säästis 5 600 € kuus.</p>
-        <p>ARS Consult tekkis soovist töötada iseseisvalt ja aidata ettevõtteid, kes vajavad selgust — inimestes, protsessides või andmetes.</p>
-        <div class="meist-quote">"Numbritel ei ole emotsiooni, aga neid on vaja korrektselt koguda, tõlgendada ja lugeda."</div>
-      </div>
+      <p><strong>ARS Consult taga on Rodion ja Annika</strong> — praktikud, kes on töötanud erinevates organisatsioonides ja näinud, mis päriselt töötab ja mis mitte.</p>
+      <p><strong>Rodion</strong> on üle 16 aasta Kaitseväes ja Kaitseliidus teeninud ohvitser, kes on juhtinud kuni 85-liikmelisi üksusi ja rahvusvahelist missiooni Afganistanis. Erasektoris on ta korrastanud protsesse ja andmesüsteeme — avastatud aruandlusviga likvideeris 10 000–12 000 € kuise kao, käsitsi töö vähenes 85%.</p>
+      <p><strong>Annika</strong> on personalijuht ja organisatsioonikultuuri eestvedaja, kellel on kogemus tootmiskeskkonnas — kiiresti muutuvates olukordades, kus selgus, koostöö ja usaldus ei ole iseenesestmõistetavad. Ta on töötanud juhtgrupi liikmena ning aidanud luua protsesse, mis toetavad juhte ja hoiavad meeskondi koos ka muutuste keskel. Tema fookus on töötajakogemus, tagasisidekultuur ja vaimse tervise teadlikkus — mitte paberil, vaid päriselt.</p>
+      <div class="meist-quote">"Kultuur ei teki dokumentidest — see tekib sellest, kuidas inimesed end iga päev tunnevad."</div>
     </div>
-    <p style="margin-top:1.5rem; font-size:.9rem; color:var(--gray);">→ <a href="#kontakt" style="color:var(--gold);">Loe lähemalt meie loost</a></p>
   </div>
 </section>
 
@@ -352,30 +337,42 @@
     <div class="blog-grid">
       <div class="blog-card">
         <span class="blog-tag">Andmed</span>
-        <h3>Data ei seisa – see liigub</h3>
-        <p>Data ei ole lihtsalt midagi, mida vaadatakse raportist. Data on midagi, mis peaks käivitama tegevuse. Kui see jääb kirjena tabelisse, leitakse see enamasti liiga hilja.</p>
-        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7463214489706852352" target="_blank" class="blog-link">Loe LinkedInis →</a>
-      </div>aja lahkub esimese 3 kuu jooksul harvem siis, kui protsess on selge juba enne esimest tööpäeva.</p>
-        <a href="https://www.linkedin.com/company/112224252" target="_blank" class="blog-link">Loe LinkedInis →</a>
-      </div>
-      <div class="blog-card">
-        <span class="blog-tag">Tööohutus</span>
-        <h3>Riskianalüüs ei pea olema mahukas — peab olema kasutatav</h3>
-        <p>Paljud ettevõtted teevad riskianalüüsi "kohustuse pärast". Tegelikult on see parim hetk protsessid korda saada.</p>
-        <a href="https://www.linkedin.com/company/ars-consult" target="_blank" class="blog-link">Loe LinkedInis →</a>
+        <h3>Täiuslikku lahendust ei ole – on suund, kasutus ja parandamine</h3>
+        <p>Halb data ei tähenda ainult segaseid Exceli tabeleid. See tähendab hilinenud otsuseid, topelttööd ja olukordi, kus keegi enam ei tea, milline number on "õige".</p>
+        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7455177138476908544" target="_blank" class="blog-link">Loe LinkedInis →</a>
       </div>
       <div class="blog-card">
         <span class="blog-tag">Andmed</span>
-        <h3>Räpane data maksab raha — aga seda saab muuta</h3>
-        <p>Kui otsused põhinevad valel infol, on kulu nähtamatu. Andmekvaliteet algab kogumisloogikast.</p>
-        <a href="https://www.linkedin.com/company/ars-consult" target="_blank" class="blog-link">Loe LinkedInis →</a>
+        <h3>Data ei seisa – see liigub</h3>
+        <p>Data ei ole lihtsalt midagi, mida vaadatakse raportist. Data on midagi, mis peaks käivitama tegevuse. Kui see jääb kirjena tabelisse, leitakse see enamasti liiga hilja.</p>
+        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7463214489706852352" target="_blank" class="blog-link">Loe LinkedInis →</a>
       </div>
       <div class="blog-card">
         <span class="blog-tag">Andmed</span>
         <h3>Hea data ei teki ise – see disainitakse</h3>
         <p>Probleem ei ole inimestes. Inimesed teevad nii, nagu süsteem lubab. Kui süsteem lubab kirjutada igaühel oma moodi, siis täpselt nii ka tehakse.</p>
-        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7463214489706852352" target="_blank" class="blog-link">Loe LinkedInis →</a>
+        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7446476723035983872" target="_blank" class="blog-link">Loe LinkedInis →</a>
       </div>
+      <div class="blog-card">
+        <span class="blog-tag">HR</span>
+        <h3>Tööõiguse seminar — värsked teadmised päris elust</h3>
+        <p>Osalesime tööõiguse seminaril, mis tõi kaasa värsket kohtupraktikat ja arutelusid — muutuvtunni kokkulepetest kuni palga läbipaistvuse direktiivini.</p>
+        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7457868450993045505" target="_blank" class="blog-link">Loe LinkedInis → <span style="font-size:.75rem; opacity:.7;">— Annika</span></a>
+      </div>
+      <div class="blog-card">
+        <span class="blog-tag">Juhtimine</span>
+        <h3>Probleem ei ole enamasti inimestes</h3>
+        <p>Kui rollid ei ole selged ja töö liigub lihtsalt "kuidagi", siis ei saagi süsteem toimida. Inimesed töötavad nii hästi, kui süsteem seda võimaldab.</p>
+        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7440712942888611840" target="_blank" class="blog-link">Loe LinkedInis → <span style="font-size:.75rem; opacity:.7;">— Annika</span></a>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:2.5rem;">
+      <a href="https://www.linkedin.com/company/112224252" target="_blank" style="display:inline-block; border:1.5px solid var(--gold); color:var(--gold); padding:.7rem 1.8rem; border-radius:6px; font-size:.88rem; font-weight:600;">Vaata kõiki postitusi LinkedInis →</a>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
 <section id="kontakt">
   <div class="container">
     <div class="contact-inner">
